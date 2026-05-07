@@ -1,0 +1,94 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
+
+export default function Navbar() {
+  const logoRef = useRef<HTMLDivElement>(null);
+  const thermRef = useRef<HTMLSpanElement>(null);
+  const waterRef = useRef<HTMLSpanElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (logoRef.current && thermRef.current && waterRef.current && contactRef.current) {
+      // Animação da logo
+      gsap.fromTo(
+        logoRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 1.5,
+          ease: 'power2.inOut',
+          delay: 0.5,
+        }
+      );
+
+      // Animação THERM vindo da esquerda
+      gsap.fromTo(
+        thermRef.current,
+        { x: -100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          delay: 0.2,
+        }
+      );
+
+      // Animação WATER vindo da direita
+      gsap.fromTo(
+        waterRef.current,
+        { x: 100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          delay: 0.2,
+        }
+      );
+
+      // Animação CONTACT vindo da direita
+      gsap.fromTo(
+        contactRef.current,
+        { x: 100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          delay: 0.4,
+        }
+      );
+    }
+  }, []);
+
+  return (
+    <nav className="flex justify-between items-center px-8 py-4 fixed top-0 left-0 right-0 z-50 bg-background">
+      {/* Primeiro elemento - THERM WATER */}
+      <div className="font-inter text-[20px] text-[#0054A2] hover:text-[#0077CC] transition-colors duration-300">
+        <span ref={thermRef} className="inline-block">THERM</span>
+        <br/>
+        <span ref={waterRef} className="ml-4 inline-block">WATER</span>
+      </div>
+
+      {/* Segundo elemento - Logo no meio */}
+      <div ref={logoRef}>
+        <Image 
+          src="/logo.png" 
+          alt="Logo" 
+          width={60} 
+          height={60}
+          className="object-contain"
+        />
+      </div>
+
+      {/* Terceiro elemento - CONTACT */}
+      <div ref={contactRef} className="font-inter cursor-pointer text-primary-blue hover:text-primary-blue-light transition-colors duration-300">
+        CONTACT
+      </div>
+    </nav>
+  );
+}

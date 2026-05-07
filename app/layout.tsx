@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Montserrat, Aldrich } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import SmoothScroll from "./components/SmoothScroll";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -42,7 +43,10 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${montserrat.variable} ${aldrich.variable} ${gilroy.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }
