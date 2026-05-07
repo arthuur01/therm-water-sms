@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ScrollArrow from "./components/ScrollArrow";
 import TemperatureDisplay from "./components/TemperatureDisplay";
 import HeroHeader from "./components/HeroHeader";
