@@ -1,0 +1,174 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Footer() {
+  const colsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const cols = colsRef.current.filter(Boolean) as HTMLDivElement[];
+    gsap.set(cols, { opacity: 0, y: 24 });
+
+    gsap.to(cols, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power2.out',
+      stagger: 0.12,
+      scrollTrigger: {
+        trigger: cols[0],
+        start: 'top 90%',
+        toggleActions: 'play none none none',
+      },
+    });
+  }, []);
+
+  return (
+    <footer
+      className="w-full px-16 py-16 bg-[linear-gradient(160deg,#0a1628_0%,#0d2040_100%)]"
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-4 gap-12 border-b border-[#009EE2]/12 pb-12">
+        {/* Col 1 — Brand */}
+        <div
+          ref={(el) => { colsRef.current[0] = el; }}
+          className="flex flex-col gap-4"
+        >
+          <div className="flex flex-col items-center gap-3">
+            <Image src="/logo.png" alt="ThermWater Logo" width={52} height={52} className="object-contain" />
+            <p className="font-inter font-light leading-tight text-center text-[36px] text-white/90 tracking-[-0.01em]">
+              THERM<br />WATER
+            </p>
+          </div>
+          <p
+            className="font-poppins font-light text-[11px] tracking-[0.18em] uppercase mt-auto text-white/25"
+          >
+            ©2026<br />All Rights Reserved.
+          </p>
+        </div>
+
+        {/* Col 2 — Contact */}
+        <div
+          ref={(el) => { colsRef.current[1] = el; }}
+          className="flex flex-col gap-6 pt-1"
+        >
+          <p className="font-poppins font-semibold text-[11px] tracking-[0.22em] uppercase text-[#009EE2]/70">
+            Contact
+          </p>
+          <div className="flex flex-col gap-4">
+            {[
+              {
+                icon: (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.19 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="rgba(0,158,226,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                ),
+                text: '(857) 237-9117',
+              },
+              {
+                icon: (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="rgba(0,158,226,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <polyline points="22,6 12,13 2,6" stroke="rgba(0,158,226,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                ),
+                text: 'inbox@thermwater.com',
+              },
+              {
+                icon: (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="rgba(0,158,226,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <circle cx="12" cy="10" r="3" stroke="rgba(0,158,226,0.6)" strokeWidth="2"/>
+                  </svg>
+                ),
+                text: 'Orlando, Florida — USA',
+              },
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="mt-0.5 shrink-0">{item.icon}</span>
+                <span className="font-poppins font-light text-[13px] leading-snug text-white/55">
+                  {item.text}
+                </span>
+              </div>
+            ))}
+            <a
+              href="https://www.instagram.com/thermwater/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 group"
+            >
+              <span className="mt-0.5 shrink-0">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="rgba(0,158,226,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="12" cy="12" r="4" stroke="rgba(0,158,226,0.6)" strokeWidth="2"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="rgba(0,158,226,0.6)"/>
+                </svg>
+              </span>
+              <span className="font-poppins font-light text-[13px] leading-snug text-white/55 group-hover:text-[#009EE2] transition-colors duration-200">
+                @thermwater
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* Col 3 — Services */}
+        <div
+          ref={(el) => { colsRef.current[2] = el; }}
+          className="flex flex-col gap-6 pt-1"
+        >
+          <p className="font-poppins font-semibold text-[11px] tracking-[0.22em] uppercase text-[#009EE2]/70">
+            Services
+          </p>
+          <ul className="flex flex-col gap-3">
+            {[
+              'Pool Heating Automation',
+              'Remote Temperature Control',
+              'Smart Scheduling',
+              '24/7 Monitoring & Support',
+            ].map((s, i) => (
+              <li
+                key={i}
+                className="font-poppins font-light text-[13px] tracking-wide uppercase text-white/45"
+              >
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Col 4 — Property Managers */}
+        <div
+          ref={(el) => { colsRef.current[3] = el; }}
+          className="flex flex-col gap-6 pt-1"
+        >
+          <p className="font-poppins font-semibold text-[11px] tracking-[0.22em] uppercase text-[#009EE2]/70">
+            For Property Managers
+          </p>
+          <p className="font-poppins font-light text-[13px] uppercase tracking-wide leading-relaxed text-white/45">
+            Special pricing and dedicated support for property management professionals.
+          </p>
+          <a
+            href="#contact"
+            className="font-poppins font-semibold text-[12px] tracking-[0.15em] uppercase transition-colors duration-200 text-[#009EE2] hover:text-white"
+          >
+            Get in touch →
+          </a>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="max-w-7xl mx-auto flex justify-between items-center pt-6">
+        <p
+          className="font-poppins font-light text-[11px] tracking-widest uppercase text-white/20"
+        >
+          ThermWater — Smart Pool Temperature Control
+        </p>
+        
+      </div>
+    </footer>
+  );
+}

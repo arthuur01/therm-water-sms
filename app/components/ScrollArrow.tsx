@@ -2,6 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollArrow() {
   const arrowRef = useRef<SVGSVGElement>(null);
@@ -31,12 +34,24 @@ export default function ScrollArrow() {
         repeat: -1,
         delay: 2.5,
       });
+
+      // Fade out ao scrollar
+      gsap.to(containerRef.current, {
+        opacity: 0,
+        ease: 'power1.in',
+        scrollTrigger: {
+          trigger: document.body,
+          start: '80px top',
+          end: '320px top',
+          scrub: 1.5,
+        },
+      });
     }
   }, []);
 
   return (
     <div ref={containerRef} className="absolute bottom-8 left-8 flex items-center gap-2">
-      <span className="font-inter text-[20px]" style={{ color: '#205898' }}>
+      <span className="font-inter text-[20px] text-[#205898]">
         Scroll for More
       </span>
       <svg
@@ -46,7 +61,7 @@ export default function ScrollArrow() {
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ color: '#205898' }}
+        className="text-[#205898]"
       >
         <path
           d="M12 5V19M12 19L19 12M12 19L5 12"

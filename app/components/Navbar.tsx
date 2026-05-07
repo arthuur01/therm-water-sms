@@ -8,10 +8,11 @@ export default function Navbar() {
   const logoRef = useRef<HTMLDivElement>(null);
   const thermRef = useRef<HTMLSpanElement>(null);
   const waterRef = useRef<HTMLSpanElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLAnchorElement>(null);
+  const pricesRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    if (logoRef.current && thermRef.current && waterRef.current && contactRef.current) {
+    if (logoRef.current && thermRef.current && waterRef.current && contactRef.current && pricesRef.current) {
       // Animação da logo
       gsap.fromTo(
         logoRef.current,
@@ -62,6 +63,19 @@ export default function Navbar() {
           delay: 0.4,
         }
       );
+
+      // Animação PRICES vindo da direita
+      gsap.fromTo(
+        pricesRef.current,
+        { x: 100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          delay: 0.55,
+        }
+      );
     }
   }, []);
 
@@ -85,9 +99,14 @@ export default function Navbar() {
         />
       </div>
 
-      {/* Terceiro elemento - CONTACT */}
-      <div ref={contactRef} className="font-inter cursor-pointer text-primary-blue hover:text-primary-blue-light transition-colors duration-300">
-        CONTACT
+      {/* Terceiro elemento - PRICES + CONTACT */}
+      <div className="flex items-center gap-6">
+        <a ref={pricesRef} href="#prices" className="font-inter cursor-pointer text-primary-blue hover:text-primary-blue-light transition-colors duration-300">
+          PRICES
+        </a>
+        <a ref={contactRef} href="#contact" className="font-inter cursor-pointer text-primary-blue hover:text-primary-blue-light transition-colors duration-300">
+          CONTACT
+        </a>
       </div>
     </nav>
   );

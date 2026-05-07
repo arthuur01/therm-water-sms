@@ -2,20 +2,20 @@
 
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll() {
   useEffect(() => {
-    // Desabilita o scroll restoration do navegador
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    
-    // Força o scroll para o topo ao carregar
-    window.history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
-    
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -24,18 +24,21 @@ export default function SmoothScroll() {
       touchMultiplier: 2,
     });
 
-    // Força scroll inicial no Lenis também
     lenis.scrollTo(0, { immediate: true });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // Sincroniza Lenis com ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
 
-    requestAnimationFrame(raf);
+    // Usa o ticker do GSAP para rodar o Lenis (evita dessincronia)
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
+      gsap.ticker.remove((time) => { lenis.raf(time * 1000); });
     };
   }, []);
 

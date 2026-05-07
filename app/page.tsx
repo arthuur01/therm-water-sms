@@ -5,6 +5,10 @@ import Navbar from "./components/Navbar";
 import EverythingText from "./components/EverythingText";
 import PhoneDrawSVG from "./components/PhoneDrawSVG";
 import CalendarDrawSVG from "./components/CalendarDrawSVG";
+import SectionText from "./components/SectionText";
+import PricingCard from "./components/PricingCard";
+import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -32,14 +36,15 @@ export default function Home() {
           <div className="min-h-screen flex items-center justify-center">
             <div className="flex flex-col items-center text-center max-w-md">
               <PhoneDrawSVG />
-              <h3 className="font-poppins font-semibold text-[24px] text-[#007AAE] mb-4">
-                REMOTE ACCESS
-              </h3>
-              <p className="font-poppins font-medium text-[16px] text-[#009EE2] leading-relaxed">
-                Control and monitor your pool from anywhere using our mobile app.
-                <br />
-                Real-time alerts for temperature changes, system status, and maintenance.
-              </p>
+              <SectionText
+                title="REMOTE ACCESS"
+                paragraphs={[
+                  "Control and monitor your pool from anywhere using our mobile app.",
+                  "Real-time alerts for temperature changes, system status, and maintenance.",
+                ]}
+                titleClass="font-poppins font-semibold text-[24px] text-[#007AAE] mb-4 mt-8"
+                paragraphClass="font-poppins font-medium text-[16px] text-[#009EE2] leading-relaxed"
+              />
             </div>
           </div>
 
@@ -47,26 +52,37 @@ export default function Home() {
           <div className="min-h-screen flex items-center justify-center">
             <div className="flex flex-col items-center text-center max-w-md">
               <CalendarDrawSVG />
-              <h3 className="font-poppins font-semibold text-[24px] text-[#007AAE] mb-6">
-                SMART SCHEDULING
-              </h3>
-              <p className="font-poppins font-medium text-[16px] text-[#009EE2] leading-relaxed mb-8">
-                Create custom heating schedules that match your lifestyle and save energy automatically.
-                <br />
-                Real-time alerts for temperature changes, system status, and maintenance.
-              </p>
-              <p className="font-poppins font-medium text-[16px] text-[#009EE2] leading-relaxed">
-                Monthly reports on system usage, energy consumption, and optimization tips.
-              </p>
+              <SectionText
+                title="SMART SCHEDULING"
+                paragraphs={[
+                  "Create custom heating schedules that match your lifestyle and save energy automatically.",
+                  "Real-time alerts for temperature changes, system status, and maintenance.",
+                  "Monthly reports on system usage, energy consumption, and optimization tips.",
+                ]}
+                titleClass="font-poppins font-semibold text-[24px] text-[#007AAE] mb-4 mt-8"
+                paragraphClass="font-poppins font-medium text-[16px] text-[#009EE2] leading-relaxed mb-2"
+              />
+              
             </div>
           </div>
         </div>
       </div>
-
-      {/* Quarta Seção - Temperature Control */}
+       {/* Quarta Seção - Temperature Control */}
       <section className="min-h-screen flex items-center justify-center px-16 pt-32">
         <TemperatureDisplay />
+      </section>         
+      {/* Seção de Preços */}
+      <section id="prices" className="min-h-screen flex items-center justify-center px-16 py-32 bg-[#EEF5FF]">
+        <PricingCard />
       </section>
+
+      {/* Seção de Contato */}
+      <section id="contact" className="flex items-center justify-center px-16 py-40">
+        <ContactForm />
+      </section>
+
+      <Footer />
+
     </div>
   );
 }
