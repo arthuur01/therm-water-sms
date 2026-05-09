@@ -98,14 +98,14 @@ export default function EverythingText() {
       <br />
       <div ref={line3Ref} className="relative inline-block">
         <h2 className="font-poppins font-extralight text-[80px] leading-tight text-[#007AAE]">
-          {splitIntoLetters('to Control')}
+          {splitIntoLetters('to Monitor')}
         </h2>
         <span className="underline-anim absolute bottom-0 left-0 w-full h-[2px] bg-[#007AAE] origin-left" />
       </div>
       <br />
       <div ref={line4Ref} className="relative inline-block">
         <h2 className="font-poppins font-extralight text-[80px] leading-tight text-[#007AAE]">
-          {splitIntoLetters('Your Pool')}
+          {splitIntoLetters('Your HVAC')}
         </h2>
         <span className="underline-anim absolute bottom-0 left-0 w-full h-[2px] bg-[#007AAE] origin-left" />
       </div>

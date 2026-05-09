@@ -70,10 +70,10 @@ export default function HeroHeader() {
       {/* H1 - Perfect Pool Temperature */}
       <h1
         ref={h1Ref}
-        className="font-poppins font-extralight text-[115px] text-left w-370 leading-tight"
+        className="font-poppins font-extralight text-[90px] text-left w-370 leading-tight"
       >
-        {splitIntoLetters('Perfect Pool ', 'text-[#009EE2]')}
-        {splitIntoLetters('Temperature', 'text-[#007AAE]')}
+        {splitIntoLetters('Smart HVAC', 'text-[#009EE2]')}
+        {splitIntoLetters(' Monitoring & Control', 'text-[#007AAE]')}
       </h1>
 
       {/* H2 - Remote monitoring... */}
@@ -81,11 +81,11 @@ export default function HeroHeader() {
         ref={h2Ref}
         className="font-poppins font-extralight text-[35px] text-right w-370 mt-4 leading-tight"
       >
-        {splitIntoLetters('Remote ', 'text-[#009CDF]')}
-        {splitIntoLetters('monitoring', 'text-[#007AAE]')}
-        {splitIntoLetters(' and ', 'text-[#009CDF]')}
+        {splitIntoLetters('Real-time  ', 'text-[#009CDF]')}
+        {splitIntoLetters('HVAC protection ', 'text-[#007AAE]')}
+        {splitIntoLetters(' that ', 'text-[#009CDF]')}
         <span className="relative inline-block">
-          {splitIntoLetters('smart energy-efficient automation.', 'text-[#007AAE]')}
+          {splitIntoLetters('prevents failure and revenue loss', 'text-[#007AAE]')}
           <span
             ref={underlineRef}
             className="absolute bottom-0 left-0 w-full h-[2px] bg-[#007AAE] origin-left"

@@ -1,0 +1,96 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function BellDrawSVG() {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const bodyRef = useRef<SVGPathElement>(null);
+  const arc1Ref = useRef<SVGPathElement>(null);
+  const arc2Ref = useRef<SVGPathElement>(null);
+  const stemRef = useRef<SVGPathElement>(null);
+
+  useEffect(() => {
+    const body = bodyRef.current;
+    const arc1 = arc1Ref.current;
+    const arc2 = arc2Ref.current;
+    const stem = stemRef.current;
+
+    if (!body || !arc1 || !arc2 || !stem) return;
+
+    const bodyLen = body.getTotalLength();
+    const arc1Len = arc1.getTotalLength();
+    const arc2Len = arc2.getTotalLength();
+    const stemLen = stem.getTotalLength();
+
+    gsap.set(stem, { strokeDasharray: stemLen, strokeDashoffset: stemLen });
+    gsap.set(body, { strokeDasharray: bodyLen, strokeDashoffset: bodyLen });
+    gsap.set(arc1, { strokeDasharray: arc1Len, strokeDashoffset: arc1Len });
+    gsap.set(arc2, { strokeDasharray: arc2Len, strokeDashoffset: arc2Len });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: svgRef.current,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+    });
+
+    // 1. Draw stem first
+    tl.to(stem, { strokeDashoffset: 0, duration: 0.5, ease: 'power2.out' })
+      // 2. Draw main bell body
+      .to(body, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }, '-=0.2')
+      // 3. Draw bottom arcs
+      .to(arc1, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+      .to(arc2, { strokeDashoffset: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
+  return (
+    <svg
+      ref={svgRef}
+      width="247"
+      height="298"
+      viewBox="0 0 247 298"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Main bell body */}
+      <path
+        ref={bodyRef}
+        d="M122.932 45C130.753 45 138.606 45.9224 146.209 47.7471L146.969 47.9287L148.521 48.3945C157.153 50.9843 165.247 55.1123 172.412 60.5801C177.504 64.4662 182.076 68.9902 186.016 74.041L188.303 76.9736C195.473 86.166 200.7 96.72 203.667 107.994C205.548 115.141 206.5 122.5 206.5 129.89V146C206.5 146.055 206.502 146.11 206.507 146.164L208.597 171.588C209.215 179.112 210.796 186.526 213.302 193.647L214.031 195.721C217.474 205.505 222.848 214.498 229.834 222.165L237.231 230.284C238.791 231.996 240.017 233.982 240.849 236.141L241.01 236.574L241.114 236.865C243.091 242.401 242.25 248.552 238.86 253.354C235.476 258.149 229.974 261 224.105 261H23.0771C17.8189 261 12.7862 258.864 9.13379 255.081L6.51465 252.368C3.78306 249.539 2.59619 245.559 3.33203 241.695C3.68898 239.822 4.48375 238.059 5.65137 236.551L15.5811 223.725C15.6114 223.685 15.6406 223.645 15.668 223.604L16.2422 222.735C29.5008 202.686 37.497 179.62 39.4932 155.666C39.4978 155.611 39.5 155.555 39.5 155.5V130.63L41.7148 113.221C42.5338 106.786 44.2261 100.493 46.7432 94.5146C49.3888 88.2314 52.9199 82.3588 57.2295 77.0762L60.1152 73.5391C63.959 68.8273 68.3429 64.5835 73.1768 60.8945C80.6136 55.2191 89.0151 50.9333 97.9756 48.2451L99.0234 47.9307C106.821 45.9845 114.892 45 122.932 45Z"
+        stroke="#7FB1DB"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Outer bottom arc */}
+      <path
+        ref={arc1Ref}
+        d="M81 263C81 281.225 95.7746 296 114 296H132C150.225 296 165 281.225 165 263"
+        stroke="#7FB1DB"
+        strokeWidth="4"
+      />
+      {/* Inner bottom arc */}
+      <path
+        ref={arc2Ref}
+        d="M97 264.5C97 272.784 103.716 279.5 112 279.5H134.5C142.784 279.5 149.5 272.784 149.5 264.5"
+        stroke="#7FB1DB"
+        strokeWidth="4"
+      />
+      {/* Stem / handle */}
+      <path
+        ref={stemRef}
+        d="M98.5 46.5V26.5C98.5 12.969 109.469 2 123 2C135.426 2 145.5 12.0736 145.5 24.5V45V46.5"
+        stroke="#7FB1DB"
+        strokeWidth="4"
+      />
+    </svg>
+  );
+}

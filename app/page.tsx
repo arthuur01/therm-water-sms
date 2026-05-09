@@ -1,14 +1,14 @@
 import ScrollArrow from "./components/ScrollArrow";
-import TemperatureDisplay from "./components/TemperatureDisplay";
 import HeroHeader from "./components/HeroHeader";
 import Navbar from "./components/Navbar";
 import EverythingText from "./components/EverythingText";
-import PhoneDrawSVG from "./components/PhoneDrawSVG";
-import CalendarDrawSVG from "./components/CalendarDrawSVG";
+import ControlPanelDrawSVG from "./components/ControlPanelDrawSVG";
+import BellDrawSVG from "./components/BellDrawSVG";
 import SectionText from "./components/SectionText";
 import PricingCard from "./components/PricingCard";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import FaultDetectionHeading from "./components/FaultDetectionHeading";
 
 export default function Home() {
   return (
@@ -35,12 +35,12 @@ export default function Home() {
           {/* Remote Access */}
           <div className="min-h-screen flex items-center justify-center">
             <div className="flex flex-col items-center text-center max-w-md">
-              <PhoneDrawSVG />
+              <ControlPanelDrawSVG />
               <SectionText
-                title="REMOTE ACCESS"
+                title="Intelligent HVAC Monitoring"
                 paragraphs={[
-                  "Control and monitor your pool from anywhere using our mobile app.",
-                  "Real-time alerts for temperature changes, system status, and maintenance.",
+                  "Control board is installed on the HVAC unit. Detects faults and auto-generates service orders.",
+                  "Real-time alerts for changes, system status, and maintenance.",
                 ]}
                 titleClass="font-poppins font-semibold text-[24px] text-[#007AAE] mb-4 mt-8"
                 paragraphClass="font-poppins font-medium text-[16px] text-[#009EE2] leading-relaxed"
@@ -51,13 +51,12 @@ export default function Home() {
           {/* Smart Scheduling */}
           <div className="min-h-screen flex items-center justify-center">
             <div className="flex flex-col items-center text-center max-w-md">
-              <CalendarDrawSVG />
+              <BellDrawSVG />
               <SectionText
-                title="SMART SCHEDULING"
+                title="AUTOMATIC SERVICE ORDER GENERATION"
                 paragraphs={[
-                  "Create custom heating schedules that match your lifestyle and save energy automatically.",
-                  "Real-time alerts for temperature changes, system status, and maintenance.",
-                  "Monthly reports on system usage, energy consumption, and optimization tips.",
+                  "When a fault is detected, the system instantly sends real-time alerts and automatically generates a service order, allowing maintenance teams to respond quickly before the issue affects guests, tenants, or daily operations.",
+                 
                 ]}
                 titleClass="font-poppins font-semibold text-[24px] text-[#007AAE] mb-4 mt-8"
                 paragraphClass="font-poppins font-medium text-[16px] text-[#009EE2] leading-relaxed mb-2"
@@ -67,9 +66,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-       {/* Quarta Seção - Temperature Control */}
+       {/* Quarta Seção - Fault Detection */}
       <section className="min-h-screen flex items-center justify-center px-16 pt-32">
-        <TemperatureDisplay />
+        <FaultDetectionHeading />
       </section>         
       {/* Seção de Preços */}
       <section id="prices" className="min-h-screen flex items-center justify-center px-16 py-32 bg-[#EEF5FF]">

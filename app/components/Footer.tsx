@@ -165,7 +165,7 @@ export default function Footer() {
         <p
           className="font-poppins font-light text-[11px] tracking-widest uppercase text-white/20"
         >
-          ThermWater — Smart Pool Temperature Control
+          ThermWater — Smart Pool Temperature and HVAC Control
         </p>
         
       </div>
