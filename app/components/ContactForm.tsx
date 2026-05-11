@@ -80,7 +80,7 @@ export default function ContactForm() {
             <path d="M14 24.5L20.5 31L34 18" stroke="#009EE2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <p className="font-poppins font-light text-[18px] text-[#0054A2]">
-            We'll be in touch shortly.
+            We&apos;ll be in touch shortly.
           </p>
         </div>
       ) : (

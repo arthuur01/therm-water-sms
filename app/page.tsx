@@ -5,7 +5,6 @@ import EverythingText from "./components/EverythingText";
 import ControlPanelDrawSVG from "./components/ControlPanelDrawSVG";
 import BellDrawSVG from "./components/BellDrawSVG";
 import SectionText from "./components/SectionText";
-import PricingCard from "./components/PricingCard";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import FaultDetectionHeading from "./components/FaultDetectionHeading";
@@ -67,14 +66,11 @@ export default function Home() {
         </div>
       </div>
        {/* Quarta Seção - Fault Detection */}
-      <section className="min-h-screen flex items-center justify-center px-16 pt-32">
+      <section className="min-h-screen flex items-center justify-center px-5 pt-20 sm:px-8 sm:pt-24 lg:px-16 lg:pt-32">
         <FaultDetectionHeading />
       </section>         
       {/* Seção de Preços */}
-      <section id="prices" className="min-h-screen flex items-center justify-center px-16 py-32 bg-[#EEF5FF]">
-        <PricingCard />
-      </section>
-
+      
       {/* Seção de Contato */}
       <section id="contact" className="flex items-center justify-center px-16 py-40">
         <ContactForm />

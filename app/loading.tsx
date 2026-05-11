@@ -1,16 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { ReactNode } from "react";
 
 
-export default function LoadingScreen({children}: {children: React.ReactNode}){
-
-    const [isLoading, setLoading]  = useState(true);
-
-
-    return(
-        <>
-        {children}
-        </>
-    );
+export default function LoadingScreen({ children }: { children: ReactNode }) {
+    return <>{children}</>;
 }

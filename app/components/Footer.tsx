@@ -30,22 +30,22 @@ export default function Footer() {
 
   return (
     <footer
-      className="w-full px-16 py-16 bg-[linear-gradient(160deg,#0a1628_0%,#0d2040_100%)]"
+      className="w-full bg-[linear-gradient(160deg,#0a1628_0%,#0d2040_100%)] px-5 py-12 sm:px-8 sm:py-14 lg:px-16 lg:py-16"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-4 gap-12 border-b border-[#009EE2]/12 pb-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 border-b border-[#009EE2]/12 pb-10 sm:grid-cols-2 sm:gap-8 sm:pb-12 lg:grid-cols-4 lg:gap-12">
         {/* Col 1 — Brand */}
         <div
           ref={(el) => { colsRef.current[0] = el; }}
-          className="flex flex-col gap-4"
+          className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left"
         >
-          <div className="flex flex-col items-center gap-3">
-            <Image src="/logo.png" alt="ThermWater Logo" width={52} height={52} className="object-contain" />
-            <p className="font-inter font-light leading-tight text-center text-[36px] text-white/90 tracking-[-0.01em]">
+          <div className="flex flex-col items-center gap-3 sm:items-start">
+            <Image src="/logo.png" alt="ThermWater Logo" width={52} height={52} className="h-[52px] w-[52px] object-contain" />
+            <p className="font-inter font-light leading-tight text-center text-[30px] text-white/90 tracking-[-0.01em] sm:text-left sm:text-[34px] lg:text-[36px]">
               THERM<br />WATER
             </p>
           </div>
           <p
-            className="font-poppins font-light text-[11px] tracking-[0.18em] uppercase mt-auto text-white/25"
+            className="mt-auto font-poppins font-light text-[11px] tracking-[0.18em] uppercase text-white/25"
           >
             ©2026<br />All Rights Reserved.
           </p>
@@ -54,7 +54,7 @@ export default function Footer() {
         {/* Col 2 — Contact */}
         <div
           ref={(el) => { colsRef.current[1] = el; }}
-          className="flex flex-col gap-6 pt-1"
+          className="flex flex-col gap-5 pt-1 text-center sm:text-left lg:gap-6"
         >
           <p className="font-poppins font-semibold text-[11px] tracking-[0.22em] uppercase text-[#009EE2]/70">
             Contact
@@ -88,7 +88,7 @@ export default function Footer() {
                 text: 'Orlando, Florida — USA',
               },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
+              <div key={i} className="flex items-start justify-center gap-3 sm:justify-start">
                 <span className="mt-0.5 shrink-0">{item.icon}</span>
                 <span className="font-poppins font-light text-[13px] leading-snug text-white/55">
                   {item.text}
@@ -99,7 +99,7 @@ export default function Footer() {
               href="https://www.instagram.com/thermwater/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-start gap-3 group"
+              className="group flex items-start justify-center gap-3 sm:justify-start"
             >
               <span className="mt-0.5 shrink-0">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -118,7 +118,7 @@ export default function Footer() {
         {/* Col 3 — Services */}
         <div
           ref={(el) => { colsRef.current[2] = el; }}
-          className="flex flex-col gap-6 pt-1"
+          className="flex flex-col gap-5 pt-1 text-center sm:text-left lg:gap-6"
         >
           <p className="font-poppins font-semibold text-[11px] tracking-[0.22em] uppercase text-[#009EE2]/70">
             Services
@@ -127,6 +127,7 @@ export default function Footer() {
             {[
               'Pool Heating Automation',
               'Remote Temperature Control',
+              'HVAC Control',
               'Smart Scheduling',
               '24/7 Monitoring & Support',
             ].map((s, i) => (
@@ -143,7 +144,7 @@ export default function Footer() {
         {/* Col 4 — Property Managers */}
         <div
           ref={(el) => { colsRef.current[3] = el; }}
-          className="flex flex-col gap-6 pt-1"
+          className="flex flex-col gap-5 pt-1 text-center sm:text-left lg:gap-6"
         >
           <p className="font-poppins font-semibold text-[11px] tracking-[0.22em] uppercase text-[#009EE2]/70">
             For Property Managers
@@ -161,9 +162,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-7xl mx-auto flex justify-between items-center pt-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-center pt-6 text-center sm:justify-between sm:text-left">
         <p
-          className="font-poppins font-light text-[11px] tracking-widest uppercase text-white/20"
+          className="max-w-md font-poppins font-light text-[10px] leading-relaxed tracking-[0.18em] uppercase text-white/20 sm:max-w-none sm:text-[11px]"
         >
           ThermWater — Smart Pool Temperature and HVAC Control
         </p>

@@ -54,26 +54,26 @@ export default function FaultDetectionHeading() {
   }, []);
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center text-center max-w-5xl">
-      <h2 className="font-poppins font-extralight text-[110px] text-[#009EE2] text-center leading-none overflow-hidden">
+    <div ref={containerRef} className="flex w-full max-w-5xl flex-col items-center px-1 text-center sm:px-4">
+      <h2 className="font-poppins font-extralight text-[42px] text-[#009EE2] text-center leading-[0.95] overflow-hidden sm:text-[58px] md:text-[76px] lg:text-[110px]">
         <span ref={line1Ref} className="block">FAULT DETECTION</span>
         <span ref={line2Ref} className="block">&amp; PROTECTION</span>
       </h2>
-      <p ref={paraRef} className="font-poppins font-medium text-[20px] text-[#007AAE] leading-relaxed mt-10">
+      <p ref={paraRef} className="mt-6 max-w-3xl font-poppins font-medium text-[16px] text-[#007AAE] leading-relaxed sm:mt-8 sm:text-[18px] lg:mt-10 lg:text-[20px]">
         Most HVAC <span className="text-[#004A6E] font-semibold">failures</span> happen silently before complete shutdown.{' '}
         <span className="text-[#004A6E] font-semibold">Problems are fixed</span> before they become problems.
       </p>
 
-      <div ref={cardsRef} className="grid grid-cols-3 gap-6 mt-16 text-left">
+      <div ref={cardsRef} className="mt-10 grid w-full grid-cols-1 gap-4 text-left sm:mt-12 sm:gap-5 md:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-6">
         {CARDS.map((card) => (
-          <div key={card.title} className="border border-[#7FB1DB] rounded-2xl p-8">
-            <div className="flex items-center gap-3 mb-3">
+          <div key={card.title} className="rounded-2xl border border-[#7FB1DB] p-5 sm:p-6 lg:p-8">
+            <div className="mb-3 flex items-center gap-3">
               {card.icon && (
-                <Image src={card.icon} alt={card.title} width={28} height={28} className="object-contain" />
+                <Image src={card.icon} alt={card.title} width={28} height={28} className="h-6 w-6 object-contain sm:h-7 sm:w-7" />
               )}
-              <h3 className="font-poppins font-semibold text-[18px] text-[#004A6E]">{card.title}</h3>
+              <h3 className="font-poppins font-semibold text-[16px] text-[#004A6E] sm:text-[17px] lg:text-[18px]">{card.title}</h3>
             </div>
-            <p className="font-poppins font-normal text-[15px] text-[#007AAE] leading-relaxed">{card.desc}</p>
+            <p className="font-poppins font-normal text-[14px] text-[#007AAE] leading-relaxed sm:text-[15px]">{card.desc}</p>
           </div>
         ))}
       </div>

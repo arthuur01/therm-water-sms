@@ -134,8 +134,7 @@ export default function PricingCard() {
               className="flex items-start gap-3"
             >
               <div
-                className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
-                className="bg-[#009EE2]/15 border border-[#009EE2]/40"
+                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#009EE2]/40 bg-[#009EE2]/15"
               >
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <path d="M2 5.5L4 7.5L8 3" stroke="#7dd4f8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
