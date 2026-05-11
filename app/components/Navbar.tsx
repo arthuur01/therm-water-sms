@@ -89,18 +89,22 @@ export default function Navbar() {
       </div>
 
       {/* Segundo elemento - Logo no meio */}
-      <div ref={logoRef}>
-        <Image 
-          src="/logo.png" 
-          alt="Logo" 
-          width={60} 
+      <div ref={logoRef} className="flex items-center gap-2 md:block">
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          width={60}
           height={60}
           className="object-contain"
         />
+        <div className="font-inter text-[16px] leading-none text-[#0054A2] md:hidden">
+          <span className="inline-block">THERM</span>
+          <span className=" inline-block">WATER</span>
+        </div>
       </div>
 
       {/* Terceiro elemento - PRICES + CONTACT */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-5">
         <a ref={pricesRef} href="#contact" className="font-inter cursor-pointer text-primary-blue hover:text-primary-blue-light transition-colors duration-300">
           PRICES
         </a>
