@@ -69,45 +69,54 @@ export default function EverythingText() {
   }, []);
 
   const splitIntoLetters = (text: string) => {
-    return text.split('').map((char, index) => (
-      <span
-        key={index}
-        className="letter inline-block"
-        style={{ whiteSpace: char === ' ' ? 'pre' : 'normal' }}
-      >
-        {char === ' ' ? '\u00A0' : char}
-      </span>
-    ));
+    return text.split(/(\s+)/).map((chunk, chunkIndex) => {
+      if (/^\s+$/.test(chunk)) {
+        return (
+          <span key={`space-${chunkIndex}`} style={{ whiteSpace: 'pre' }}>
+            {chunk}
+          </span>
+        );
+      }
+
+      return (
+        <span key={`word-${chunkIndex}`} className="inline-block whitespace-nowrap">
+          {chunk.split('').map((char, letterIndex) => (
+            <span key={`${chunkIndex}-${letterIndex}`} className="letter inline-block">
+              {char}
+            </span>
+          ))}
+        </span>
+      );
+    });
   };
 
   return (
-    <div ref={containerRef} className="text-right max-w-4xl">
-      <div ref={line1Ref} className="relative inline-block">
-        <h2 className="font-poppins font-extralight text-[80px] leading-tight text-[#009EE2]">
-          {splitIntoLetters('Everything')}
-        </h2>
-        <span className="underline-anim absolute bottom-0 left-0 w-full h-[2px] bg-[#009EE2] origin-left" />
-      </div>
-      <br />
-      <div ref={line2Ref} className="relative inline-block">
-        <h2 className="font-poppins font-extralight text-[80px] leading-tight text-[#009EE2]">
-          {splitIntoLetters('You Need')}
-        </h2>
-        <span className="underline-anim absolute bottom-0 left-0 w-full h-[2px] bg-[#009EE2] origin-left" />
-      </div>
-      <br />
-      <div ref={line3Ref} className="relative inline-block">
-        <h2 className="font-poppins font-extralight text-[80px] leading-tight text-[#007AAE]">
-          {splitIntoLetters('to Monitor')}
-        </h2>
-        <span className="underline-anim absolute bottom-0 left-0 w-full h-[2px] bg-[#007AAE] origin-left" />
-      </div>
-      <br />
-      <div ref={line4Ref} className="relative inline-block">
-        <h2 className="font-poppins font-extralight text-[80px] leading-tight text-[#007AAE]">
-          {splitIntoLetters('Your HVAC')}
-        </h2>
-        <span className="underline-anim absolute bottom-0 left-0 w-full h-[2px] bg-[#007AAE] origin-left" />
+    <div ref={containerRef} className="w-full max-w-none text-center lg:max-w-4xl lg:text-right">
+      <div className="flex flex-col items-center gap-1 sm:gap-2 lg:items-end lg:gap-0">
+        <div ref={line1Ref} className="relative inline-block">
+          <h2 className="font-poppins font-extralight text-[56px] leading-none text-[#009EE2] sm:text-[68px] lg:text-[80px]">
+            {splitIntoLetters('Everything')}
+          </h2>
+          <span className="underline-anim absolute bottom-0 left-0 w-full h-0.5 bg-[#009EE2] origin-left" />
+        </div>
+        <div ref={line2Ref} className="relative inline-block">
+          <h2 className="font-poppins font-extralight text-[56px] leading-none text-[#009EE2] sm:text-[68px] lg:text-[80px]">
+            {splitIntoLetters('You Need')}
+          </h2>
+          <span className="underline-anim absolute bottom-0 left-0 w-full h-0.5 bg-[#009EE2] origin-left" />
+        </div>
+        <div ref={line3Ref} className="relative inline-block">
+          <h2 className="font-poppins font-extralight text-[56px] leading-none text-[#007AAE] sm:text-[68px] lg:text-[80px]">
+            {splitIntoLetters('to Monitor')}
+          </h2>
+          <span className="underline-anim absolute bottom-0 left-0 w-full h-0.5 bg-[#007AAE] origin-left" />
+        </div>
+        <div ref={line4Ref} className="relative inline-block">
+          <h2 className="font-poppins font-extralight text-[56px] leading-none text-[#007AAE] sm:text-[68px] lg:text-[80px]">
+            {splitIntoLetters('Your HVAC')}
+          </h2>
+          <span className="underline-anim absolute bottom-0 left-0 w-full h-0.5 bg-[#007AAE] origin-left" />
+        </div>
       </div>
     </div>
   );

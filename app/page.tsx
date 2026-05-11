@@ -16,7 +16,7 @@ export default function Home() {
       <Navbar />
 
       {/* Header Section */}
-      <header className="min-h-screen flex flex-col justify-center items-center px-8 pt-20 relative">
+      <header className="h-180 md:min-h-screen flex flex-col justify-center items-center lg:px-8 lg:pt-20 relative">
         <HeroHeader />
 
         {/* Scroll for More - Canto inferior esquerdo */}
@@ -24,17 +24,17 @@ export default function Home() {
       </header>
 
       {/* Seção com Pin - Remote Access + Smart Scheduling */}
-      <div className="flex justify-center gap-90">
+      <div className="flex flex-col items-center justify-center gap-8 px-6 lg:flex-row lg:items-start lg:gap-90 lg:px-0">
         {/* Lado Direito - Everything You Need (sticky) */}
-        <div className="w-150 flex items-center justify-end sticky top-0 self-start h-screen">
+        <div className="flex w-full items-center justify-center lg:h-screen lg:w-150 lg:justify-end lg:sticky lg:top-0 lg:self-start">
           <EverythingText />
         </div>
 
         {/* Lado Esquerdo - Remote Access + Smart Scheduling (scroll normal) */}
-        <div className="w-150 flex flex-col">
+        <div className="flex w-full max-w-md flex-col items-center lg:w-150 lg:max-w-none">
           {/* Remote Access */}
-          <div className="min-h-screen flex items-center justify-center">
-            <div className="flex flex-col items-center text-center max-w-md">
+          <div className="flex min-h-[70vh] w-full items-center justify-center lg:min-h-screen">
+            <div className="mx-auto flex w-full flex-col items-center text-center max-w-md">
               <ControlPanelDrawSVG />
               <SectionText
                 title="Intelligent HVAC Monitoring"
@@ -49,8 +49,8 @@ export default function Home() {
           </div>
 
           {/* Smart Scheduling */}
-          <div className="min-h-screen flex items-center justify-center">
-            <div className="flex flex-col items-center text-center max-w-md">
+          <div className="flex min-h-[70vh] w-full items-center justify-center lg:min-h-screen">
+            <div className="mx-auto flex w-full flex-col items-center text-center max-w-md">
               <BellDrawSVG />
               <SectionText
                 title="AUTOMATIC SERVICE ORDER GENERATION"

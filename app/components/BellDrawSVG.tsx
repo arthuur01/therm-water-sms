@@ -55,8 +55,7 @@ export default function BellDrawSVG() {
   return (
     <svg
       ref={svgRef}
-      width="247"
-      height="298"
+      className="w-56 h-auto max-w-full sm:w-60 lg:w-62"
       viewBox="0 0 247 298"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

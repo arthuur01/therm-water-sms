@@ -53,16 +53,29 @@ export default function HeroHeader() {
     }
   }, []);
 
-  const splitIntoLetters = (text: string, color: string, underline = false) => {
-    return text.split('').map((char, index) => (
-      <span
-        key={index}
-        className={`letter inline-block ${color}`}
-        style={{ whiteSpace: char === ' ' ? 'pre' : 'normal' }}
-      >
-        {char === ' ' ? '\u00A0' : char}
-      </span>
-    ));
+  const splitIntoLetters = (text: string, color: string) => {
+    return text.split(/(\s+)/).map((chunk, chunkIndex) => {
+      if (/^\s+$/.test(chunk)) {
+        return (
+          <span key={`space-${chunkIndex}`} style={{ whiteSpace: 'pre' }}>
+            {chunk}
+          </span>
+        );
+      }
+
+      return (
+        <span key={`word-${chunkIndex}`} className="inline-block whitespace-nowrap">
+          {chunk.split('').map((char, letterIndex) => (
+            <span
+              key={`${chunkIndex}-${letterIndex}`}
+              className={`letter inline-block ${color}`}
+            >
+              {char}
+            </span>
+          ))}
+        </span>
+      );
+    });
   };
 
   return (
@@ -70,7 +83,7 @@ export default function HeroHeader() {
       {/* H1 - Perfect Pool Temperature */}
       <h1
         ref={h1Ref}
-        className="font-poppins font-extralight text-[90px] text-left w-370 leading-tight"
+        className="font-poppins font-extralight text-[52px] text-center w-full  lg:text-[90px] lg:text-left  lg:w-370 leading-tight"
       >
         {splitIntoLetters('Smart HVAC', 'text-[#009EE2]')}
         {splitIntoLetters(' Monitoring & Control', 'text-[#007AAE]')}
@@ -79,7 +92,7 @@ export default function HeroHeader() {
       {/* H2 - Remote monitoring... */}
       <h2
         ref={h2Ref}
-        className="font-poppins font-extralight text-[35px] text-right w-370 mt-4 leading-tight"
+        className="font-poppins font-extralight text-[21px] lg:text-[35px] text-center lg:text-right lg:w-370 mt-4 leading-tight"
       >
         {splitIntoLetters('Real-time  ', 'text-[#009CDF]')}
         {splitIntoLetters('HVAC protection ', 'text-[#007AAE]')}
@@ -88,7 +101,7 @@ export default function HeroHeader() {
           {splitIntoLetters('prevents failure and revenue loss', 'text-[#007AAE]')}
           <span
             ref={underlineRef}
-            className="absolute bottom-0 left-0 w-full h-[2px] bg-[#007AAE] origin-left"
+            className="absolute bottom-0 left-0 w-full h-0.5 bg-[#007AAE] origin-left"
             style={{ transform: 'scaleX(0)' }}
           />
         </span>

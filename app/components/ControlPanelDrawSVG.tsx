@@ -74,8 +74,7 @@ export default function ControlPanelDrawSVG() {
   return (
     <svg
       ref={svgRef}
-      width="446"
-      height="387"
+      className="w-65 h-auto max-w-full sm:w-80 lg:w-111.5"
       viewBox="0 0 446 387"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

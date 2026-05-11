@@ -80,9 +80,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="flex justify-between items-center px-8 py-4 fixed top-0 left-0 right-0 z-50 bg-background">
+    <nav className="flex justify-between items-center px-3 py-2 md:px-8 md:py-4 fixed top-0 md:left-0 md:right-0 z-50 bg-background gap-45">
       {/* Primeiro elemento - THERM WATER */}
-      <div className="font-inter text-[20px] text-[#0054A2] hover:text-[#0077CC] transition-colors duration-300">
+      <div className="hidden md:block font-inter text-[20px] text-[#0054A2] hover:text-[#0077CC] transition-colors duration-300">
         <span ref={thermRef} className="inline-block">THERM</span>
         <br/>
         <span ref={waterRef} className="ml-4 inline-block">WATER</span>
