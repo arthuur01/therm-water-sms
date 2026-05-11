@@ -104,7 +104,7 @@ export default function Navbar() {
       </div>
 
       {/* Terceiro elemento - PRICES + CONTACT */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4">
         <a ref={pricesRef} href="#contact" className="font-inter cursor-pointer text-primary-blue hover:text-primary-blue-light transition-colors duration-300">
           PRICES
         </a>
