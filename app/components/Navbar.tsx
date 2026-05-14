@@ -150,15 +150,7 @@ export default function Navbar() {
               >
                 CONTACT
               </a>
-              <a
-                href="https://climate.thermwater.com/houses"
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="rounded-xl px-4 py-3 font-inter text-[14px] tracking-[0.08em] text-[#0054A2] transition-colors duration-300 hover:bg-[#009EE2]/8"
-              >
-                DASHBOARD
-              </a>
+             
             </div>
           ) : null}
         </div>
@@ -169,15 +161,6 @@ export default function Navbar() {
           </a>
           <a ref={contactRef} href="#contact" className="font-inter cursor-pointer text-primary-blue hover:text-primary-blue-light transition-colors duration-300">
             CONTACT
-          </a>
-          <a
-            ref={dashboardRef}
-            href="https://climate.thermwater.com/houses"
-            target="_blank"
-            rel="noreferrer"
-            className="font-inter cursor-pointer text-primary-blue hover:text-primary-blue-light transition-colors duration-300"
-          >
-            DASHBOARD
           </a>
         </div>
       </div>

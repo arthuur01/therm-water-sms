@@ -18,6 +18,15 @@ export default function Home() {
       <header className="h-180 md:min-h-screen flex flex-col justify-center items-center lg:px-8 lg:pt-20 relative">
         <HeroHeader />
 
+        <a
+          href="https://climate.thermwater.com/houses"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-10 inline-flex items-center justify-center rounded-full border border-[#0054A2] bg-[linear-gradient(135deg,#009EE2_0%,#0054A2_100%)] px-8 py-3 font-poppins text-[14px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_16px_40px_rgba(0,84,162,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_48px_rgba(0,84,162,0.24)]"
+        >
+          Access Preview
+        </a>
+
         {/* Scroll for More - Canto inferior esquerdo */}
         <ScrollArrow />
       </header>
