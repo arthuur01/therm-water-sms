@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
+# ThermWater — Plataforma Web & Painel Administrativo (HVAC)
+🔗 **Demo em produção:** [therm-water-sms.vercel.app](https://therm-water-sms.vercel.app)
+> **Dica:** Adicione um print da tela principal na pasta `public/preview.png` e descomente a linha abaixo:
+> ![Preview do ThermWater](preview.png)
+---
+## 🎯 Problema Resolvido
+Empresas do setor de sistemas de aquecimento (HVAC) frequentemente operam com sites desatualizados e controles manuais de cadastros, assinaturas e catálogo de produtos. O **ThermWater** resolve esse gargalo combinando:
+- **Rebranding e interface moderna *mobile-first*** focada em clareza comercial e experiência fluida em dispositivos móveis e desktop.
+- **Painel administrativo (CRUD)** centralizado para cadastro, atualização e controle de assinaturas, clientes e produtos.
+---
+## 🛠️ Stack Utilizada
+- **Framework & Linguagem:** Next.js 16 (App Router), React 19, TypeScript
+- **Estilização:** Tailwind CSS 4
+- **Interação & UX:** GSAP (animações), Lenis (scroll suave), NProgress (feedback de navegação)
+- **Qualidade & Deploy:** ESLint, Vercel
+- **Metodologia:** Desenvolvimento colaborativo seguindo práticas ágeis (Scrum)
+---
+## ✨ Principais Funcionalidades
+- Interface 100% responsiva (*mobile-first*) com identidade visual modernizada
+- Transições e micro-interações fluidas com GSAP e Lenis
+- Painel administrativo com operações CRUD para assinaturas, cadastros e produtos
+- Arquitetura organizada em Next.js App Router (`app/`) para fácil manutenção e escalabilidade
+---
+## ▶️ Como Rodar Localmente
 ```bash
+# 1. Clone o repositório
+git clone https://github.com/arthuur01/therm-water-sms.git
+cd therm-water-sms
+# 2. Instale as dependências
+npm install
+# 3. Inicie o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Acesse [http://localhost:3000](http://localhost:3000) no navegador.
+---
+## 👤 Autor
+**Arthur Miguel Vieira Mapa** — [LinkedIn](https://linkedin.com/in/arthur-miguel-mapa) | [GitHub](https://github.com/arthuur01)
