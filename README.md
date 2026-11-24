@@ -1,6 +1,5 @@
 # ThermWater — Plataforma Web & Painel Administrativo (HVAC)
 🔗 **Demo em produção:** [therm-water-sms.vercel.app](https://therm-water-sms.vercel.app)
-> **Dica:** Adicione um print da tela principal na pasta `public/preview.png` e descomente a linha abaixo:
 > ![Preview do ThermWater](preview.png)
 ---
 ## 🎯 Problema Resolvido
